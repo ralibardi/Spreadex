@@ -14,13 +14,14 @@ namespace Spreadex.Shapes
 
         public Square(int startX, int startY) : base(startX, startY)
         {
+            ShapeName = this.GetType().Name;
         }
 
         public override string DrawShape()
         {
             var drawing = new StringBuilder();
 
-            drawing.Append(string.Format(Resources.WidgetHeader, nameof(Square), StartX, StartY));
+            drawing.Append(string.Format(Resources.WidgetHeader, ShapeName, StartX, StartY));
             drawing.Append(" ");
             drawing.Append(string.Format(Resources.WidgetSize, Size));
 

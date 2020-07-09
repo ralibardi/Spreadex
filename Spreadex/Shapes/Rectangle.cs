@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace Spreadex.Shapes
 {
@@ -7,7 +6,6 @@ namespace Spreadex.Shapes
     {
         private int _width;
         private int _height;
-
 
         public int Width
         {
@@ -23,13 +21,14 @@ namespace Spreadex.Shapes
 
         public Rectangle(int startX, int startY) : base(startX, startY)
         {
+            ShapeName = this.GetType().Name;
         }
 
         public override string DrawShape()
         {
             var drawing = new StringBuilder();
 
-            drawing.Append(string.Format(Resources.WidgetHeader, nameof(Rectangle), StartX, StartY));
+            drawing.Append(string.Format(Resources.WidgetHeader, ShapeName, StartX, StartY));
             drawing.Append(" ");
             drawing.Append(string.Format(Resources.WidgetWidth, Width));
             drawing.Append(" ");

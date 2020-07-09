@@ -7,78 +7,67 @@ namespace Spreadex.Factories
 {
     public class WidgetFactory
     {
-        public static IBasicShape GetShape(WidgetsAvailable widgetId, int startX, int startY, int width = 0, int height = 0, string text = "")
+        public Func<int[], IBasicShape>[] ShapesAvailable = 
         {
-            switch (widgetId)
-            {
-                case WidgetsAvailable.Rectangle:
-                    return GetRectangle(startX, startY, width, height);
+            GetRectangle,
+            GetSquare,
+            GetElipse,
+            GetCircle
+        };
 
-                case WidgetsAvailable.Square:
-                    return GetSquare(startX, startY, width);
-
-                case WidgetsAvailable.Elipse:
-                    return GetElipse(startX, startY, width, height);
-
-                case WidgetsAvailable.Circle:
-                    return GetCircle(startX, startY, width);
-
-                case WidgetsAvailable.TextBox:
-                    return GetTextBox(startX, startY, width, height, text);
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(widgetId), widgetId, Resources.WidgetNotSupported);
-            }
+        public IBasicShape GetShape(WidgetsAvailable widgetId, int[] info, string text = "")
+        {
+            return widgetId == WidgetsAvailable.TextBox ? GetTextBox(text, info) : ShapesAvailable[(int)widgetId](info);
         }
 
-        private static IBasicShape GetRectangle(int startX, int startY, int width, int height)
+        private static IBasicShape GetRectangle(params int[] info)
         {
-            var shape = new Rectangle(startX, startY)
+            var shape = new Rectangle(info[(int)WidgetParams.StartX], info[(int)WidgetParams.StartY])
             {
-                Width = width,
-                Height = height
+                Width = info[(int)WidgetParams.Width],
+                Height = info[(int)WidgetParams.Height]
             };
 
             return shape;
         }
 
-        private static IBasicShape GetSquare(int startX, int startY, int size)
+        private static IBasicShape GetSquare(params int[] info)
         {
-            var shape = new Square(startX, startY)
+            var shape = new Square(info[(int) WidgetParams.StartX], info[(int) WidgetParams.StartY])
             {
-                Size = size
+                Size = info[(int)WidgetParams.Size]
             };
 
             return shape;
         }
 
-        private static IBasicShape GetElipse(int startX, int startY, int diameterH, int diameterV)
+        private static IBasicShape GetElipse(params int[] info)
         {
-            var shape = new Elipse(startX, startY)
+            var shape = new Elipse(info[(int)WidgetParams.StartX], info[(int)WidgetParams.StartY])
             {
-                DiameterX = diameterH,
-                DiameterY = diameterV
+                DiameterX = info[(int)WidgetParams.Width],
+                DiameterY = info[(int)WidgetParams.Height]
             };
 
             return shape;
         }
 
-        private static IBasicShape GetCircle(int startX, int startY, int size)
+        private static IBasicShape GetCircle(params int[] info)
         {
-            var shape = new Circle(startX, startY)
+            var shape = new Circle(info[(int)WidgetParams.StartX], info[(int)WidgetParams.StartY])
             {
-                Diameter = size
+                Diameter = info[(int)WidgetParams.Size]
             };
 
             return shape;
         }
 
-        private static IBasicShape GetTextBox(int startX, int startY, int width, int height, string text)
+        private static IBasicShape GetTextBox(string text, params int[] info)
         {
-            var shape = new TextBox(startX, startY)
+            var canvas = GetRectangle(info) as Rectangle;
+
+            var shape = new TextBox(canvas)
             {
-                Width = width,
-                Height = height,
                 Text = text
             };
 

@@ -6,6 +6,7 @@ namespace Spreadex.Shapes
     {
         internal int StartX;
         internal int StartY;
+        internal string ShapeName;
 
         protected BasicShape(int startX, int startY)
         {
