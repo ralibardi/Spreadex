@@ -2,7 +2,7 @@
 
 namespace Spreadex.Shapes
 {
-    public class Circle : Shape
+    public class Circle : BasicShape
     {
         private int _diameter;
 

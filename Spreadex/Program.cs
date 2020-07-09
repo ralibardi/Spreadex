@@ -1,4 +1,6 @@
 ﻿using System;
+using Spreadex.Factories;
+using Spreadex.Shapes.Enums;
 
 namespace Spreadex
 {

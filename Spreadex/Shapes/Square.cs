@@ -2,7 +2,7 @@
 
 namespace Spreadex.Shapes
 {
-    public class Square : Shape
+    public class Square : BasicShape
     {
         private int _size;
 

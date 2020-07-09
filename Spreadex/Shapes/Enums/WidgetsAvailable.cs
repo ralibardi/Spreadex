@@ -1,4 +1,4 @@
-﻿namespace Spreadex
+﻿namespace Spreadex.Shapes.Enums
 {
     public enum WidgetsAvailable
     {

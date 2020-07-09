@@ -51,13 +51,13 @@
     </Compile>
     <Compile Include="Shapes\Circle.cs" />
     <Compile Include="Shapes\Elipsis.cs" />
-    <Compile Include="Shapes\IShape.cs" />
+    <Compile Include="Shapes\Interfaces\IBasicShape.cs" />
     <Compile Include="Shapes\Rectangle.cs" />
-    <Compile Include="Shapes\Shape.cs" />
+    <Compile Include="Shapes\BasicShape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\TextBox.cs" />
-    <Compile Include="WidgetFactory.cs" />
-    <Compile Include="WidgetsAvailable.cs" />
+    <Compile Include="Factories\WidgetFactory.cs" />
+    <Compile Include="Shapes\Enums\WidgetsAvailable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -68,5 +68,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

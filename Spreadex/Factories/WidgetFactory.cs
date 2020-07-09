@@ -1,11 +1,13 @@
 ﻿using System;
 using Spreadex.Shapes;
+using Spreadex.Shapes.Enums;
+using Spreadex.Shapes.Interfaces;
 
-namespace Spreadex
+namespace Spreadex.Factories
 {
     public class WidgetFactory
     {
-        public static IShape GetShape(WidgetsAvailable widgetId, int startX, int startY, int width = 0, int height = 0, string text = "")
+        public static IBasicShape GetShape(WidgetsAvailable widgetId, int startX, int startY, int width = 0, int height = 0, string text = "")
         {
             switch (widgetId)
             {
@@ -29,7 +31,7 @@ namespace Spreadex
             }
         }
 
-        private static IShape GetRectangle(int startX, int startY, int width, int height)
+        private static IBasicShape GetRectangle(int startX, int startY, int width, int height)
         {
             var shape = new Rectangle(startX, startY)
             {
@@ -40,7 +42,7 @@ namespace Spreadex
             return shape;
         }
 
-        private static IShape GetSquare(int startX, int startY, int size)
+        private static IBasicShape GetSquare(int startX, int startY, int size)
         {
             var shape = new Square(startX, startY)
             {
@@ -50,7 +52,7 @@ namespace Spreadex
             return shape;
         }
 
-        private static IShape GetElipse(int startX, int startY, int diameterH, int diameterV)
+        private static IBasicShape GetElipse(int startX, int startY, int diameterH, int diameterV)
         {
             var shape = new Elipse(startX, startY)
             {
@@ -61,7 +63,7 @@ namespace Spreadex
             return shape;
         }
 
-        private static IShape GetCircle(int startX, int startY, int size)
+        private static IBasicShape GetCircle(int startX, int startY, int size)
         {
             var shape = new Circle(startX, startY)
             {
@@ -71,7 +73,7 @@ namespace Spreadex
             return shape;
         }
 
-        private static IShape GetTextBox(int startX, int startY, int width, int height, string text)
+        private static IBasicShape GetTextBox(int startX, int startY, int width, int height, string text)
         {
             var shape = new TextBox(startX, startY)
             {

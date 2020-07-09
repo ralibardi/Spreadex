@@ -2,7 +2,7 @@
 
 namespace Spreadex.Shapes
 {
-    public class Elipse : Shape
+    public class Elipse : BasicShape
     {
         private int _diameterX;
         private int _diameterY;

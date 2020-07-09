@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Spreadex.Shapes
 {
-    public class Rectangle : Shape
+    public class Rectangle : BasicShape
     {
         private int _width;
         private int _height;
