@@ -1,4 +1,4 @@
-﻿namespace Spreadex.Factories
+﻿namespace Spreadex.Shapes.Enums
 {
     internal enum WidgetParams
     {

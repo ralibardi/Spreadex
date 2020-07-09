@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shapes\Enums\WidgetParams.cs" />
+    <Compile Include="Factories\CircleFactory.cs" />
+    <Compile Include="Factories\ElipseFactory.cs" />
+    <Compile Include="Factories\RectangleFactory.cs" />
+    <Compile Include="Factories\ShapeFactory.cs" />
+    <Compile Include="Factories\SquareFactory.cs" />
+    <Compile Include="Factories\TextBoxFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
@@ -57,8 +62,7 @@
     <Compile Include="Shapes\BasicShape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\TextBox.cs" />
-    <Compile Include="Factories\WidgetFactory.cs" />
-    <Compile Include="Shapes\Enums\WidgetsAvailable.cs" />
+    <Compile Include="Shapes\Enums\WidgetParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

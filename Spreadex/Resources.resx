@@ -135,4 +135,7 @@
   <data name="WidgetWidth" xml:space="preserve">
     <value>Width: {0}</value>
   </data>
+  <data name="WidgetDrawingSeparator" xml:space="preserve">
+    <value> </value>
+  </data>
 </root>

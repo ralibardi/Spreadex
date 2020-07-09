@@ -10,10 +10,10 @@ namespace Spreadex.Shapes
 
         protected BasicShape(int startX, int startY)
         {
-            StartX = startX >= 0 ? startX : 0;
-            StartY = startY >= 0 ? startY : 0;
+            StartX = startX > 0 ? startX : 0;
+            StartY = startY > 0 ? startY : 0;
         }
 
-        public abstract string DrawShape();
+        public abstract void DrawShape();
     }
 }

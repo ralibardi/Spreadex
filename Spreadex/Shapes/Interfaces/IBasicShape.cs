@@ -2,6 +2,6 @@
 {
     public interface IBasicShape
     {
-        string DrawShape();
+        void DrawShape();
     }
 }

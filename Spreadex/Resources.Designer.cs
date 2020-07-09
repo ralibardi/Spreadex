@@ -61,6 +61,15 @@ namespace Spreadex {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  .
+        /// </summary>
+        internal static string WidgetDrawingSeparator {
+            get {
+                return ResourceManager.GetString("WidgetDrawingSeparator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} ({1}, {2}).
         /// </summary>
         internal static string WidgetHeader {

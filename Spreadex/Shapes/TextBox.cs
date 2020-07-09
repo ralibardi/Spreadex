@@ -1,8 +1,9 @@
-﻿using System.Text;
+﻿using System;
 using Spreadex.Shapes.Interfaces;
 
 namespace Spreadex.Shapes
 {
+    // A textBox is a rectangle with text on top
     public class TextBox : IBasicShape
     {
         private readonly Rectangle _canvas;
@@ -14,15 +15,12 @@ namespace Spreadex.Shapes
             _canvas.ShapeName = this.GetType().Name;
         }
 
-        public string DrawShape()
+        public void DrawShape()
         {
-            var drawing = new StringBuilder();
+            _canvas.DrawShape();
 
-            drawing.Append(_canvas.DrawShape());
-            drawing.Append(" ");
-            drawing.Append(string.Format(Resources.WidgetText, Text));
-
-            return drawing.ToString();
+            Console.Write(Resources.WidgetDrawingSeparator);
+            Console.Write(Resources.WidgetText, Text);
         }
     }
 }
